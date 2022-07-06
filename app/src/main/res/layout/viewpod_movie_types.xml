@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.movieapp.viewpods.MovieTypesViewPod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/margin_medium_3"
+        app:tabIndicatorColor="@color/black"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRecommend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabLayout"
+        android:layout_marginVertical="@dimen/margin_medium_1"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:text="@string/title_recommend"
+        style="@style/text_title"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecommend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvRecommend"/>
+
+</com.example.movieapp.viewpods.MovieTypesViewPod>

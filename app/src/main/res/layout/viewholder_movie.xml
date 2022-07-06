@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="@dimen/margin_medium_2"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/width_movie"
+        android:layout_height="@dimen/height_movie"
+        app:cardCornerRadius="@dimen/margin_medium_1">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMoviePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/frozen2"
+            android:scaleType="centerCrop"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMovieName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Frozen 2"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_regular_2x"
+        android:layout_marginTop="@dimen/margin_medium"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_medium">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnFav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_favorite_border_24" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPercentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_toEndOf="@id/btnFav"
+            android:text="89 %"
+            android:textColor="@color/label_gray"
+            android:textSize="@dimen/text_regular_2x" />
+
+    </RelativeLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

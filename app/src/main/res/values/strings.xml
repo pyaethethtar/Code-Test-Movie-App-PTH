@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="search_title">What are you looking for?</string>
+    <string name="title_recommend">Recommended</string>
+    <string name="title_upcoming">Upcoming Movies</string>
+    <string name="title_cast">Cast</string>
+    <string name="btn_view_all">View all</string>
+    <string name="description_title">Movie Description</string>
+</resources>

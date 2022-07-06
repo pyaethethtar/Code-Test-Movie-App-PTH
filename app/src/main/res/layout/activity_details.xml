@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DetailsActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryColor">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/bg_rounded_corner_white"
+            android:layout_marginBottom="@dimen/margin_xxlarge">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_movie_details"
+                app:cardCornerRadius="@dimen/margin_large">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivMoviePhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/frozen2"
+                    android:scaleType="centerCrop"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                    android:padding="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium_1"/>
+            </androidx.cardview.widget.CardView>
+
+            <include
+                android:id="@+id/vpMovieDetails"
+                layout="@layout/viewpod_movie_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <include
+                android:id="@+id/vpCasts"
+                layout="@layout/viewpod_casts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+
+</androidx.core.widget.NestedScrollView>
