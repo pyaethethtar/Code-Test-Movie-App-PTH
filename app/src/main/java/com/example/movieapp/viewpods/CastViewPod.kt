@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.adapters.CastsAdapter
+import com.example.shared.data.vos.PersonVO
 import kotlinx.android.synthetic.main.viewpod_casts.view.*
 
 class CastViewPod @JvmOverloads constructor(
@@ -16,12 +17,16 @@ class CastViewPod @JvmOverloads constructor(
     override fun onFinishInflate() {
         super.onFinishInflate()
 
-        setUpRecyclerview()
+
     }
 
-    private fun setUpRecyclerview(){
+    fun setUpRecyclerview(){
         mAdapter = CastsAdapter()
         rvCasts.adapter = mAdapter
         rvCasts.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    fun displayCasts(casts: List<PersonVO>){
+        mAdapter.setNewData(casts)
     }
 }

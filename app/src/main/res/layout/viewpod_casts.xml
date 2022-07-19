@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingBottom="@dimen/margin_medium_2">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -28,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvCasts"
-        android:layout_marginTop="@dimen/margin_medium_1"/>
+        android:layout_marginTop="@dimen/margin_medium_1"
+        tools:listitem="@layout/viewholder_cast"/>
 
 </com.example.movieapp.viewpods.CastViewPod>

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DetailsActivity">
+    tools:context=".activities.DetailsActivity"
+    android:background="@color/primaryColor">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_arrow_back_ios_24"
                     android:padding="@dimen/margin_medium_2"
-                    android:layout_marginTop="@dimen/margin_medium_1"/>
+                    android:layout_marginTop="@dimen/margin_medium_2"/>
             </androidx.cardview.widget.CardView>
 
             <include

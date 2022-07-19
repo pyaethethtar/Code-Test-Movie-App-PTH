@@ -26,10 +26,17 @@ class DetailsPresenterImpl : DetailsPresenter, AbstractBasePresenter<DetailsView
 
     private fun requestMovieDetails(lifecycleOwner: LifecycleOwner, id: Int){
 
-        mMovieModel.getMovieById(id)
+        mMovieModel.getMovieById(id, onError = {mView?.displayError(it)})
             .observe(lifecycleOwner, Observer {
                 if (it!=null){
                     mView?.displayMovieDetails(it)
+                }
+            })
+
+        mMovieModel.getActorsList(onError = {mView?.displayError(it)})
+            .observe(lifecycleOwner, Observer {
+                if (it.isNotEmpty()){
+                    mView?.displayCasts(it)
                 }
             })
     }

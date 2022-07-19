@@ -2,6 +2,7 @@ package com.example.movieapp.viewholders
 
 import android.view.View
 import com.bumptech.glide.Glide
+import com.example.movieapp.R
 import com.example.shared.BaseViewHolder
 import com.example.shared.data.vos.MovieVO
 import com.example.movieapp.delegates.MoviesDelegate
@@ -26,6 +27,12 @@ class MovieViewHolder(itemView: View, private val mDelegate: MoviesDelegate) : B
         Glide.with(itemView.context).load(IMAGE_URL+data.posterPath).into(itemView.ivMoviePhoto)
         itemView.tvMovieName.text = data.originalTitle
         itemView.tvPercentage.text = data.voteAverage.toString()
+        if (data.isFavourite){
+            itemView.btnFav.setBackgroundResource(R.drawable.ic_favorite_selected_24)
+        }
+        else{
+            itemView.btnFav.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
+        }
 
         itemView.btnFav.setOnClickListener {
             mDelegate.onTapFavMovie(data)

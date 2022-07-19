@@ -16,6 +16,7 @@ import com.example.shared.data.vos.MovieVO
 import com.example.movieapp.mvp.presenters.DetailsPresenter
 import com.example.movieapp.mvp.presenters.DetailsPresenterImpl
 import com.example.movieapp.mvp.views.DetailsView
+import com.example.shared.data.vos.PersonVO
 import com.example.shared.utils.IMAGE_URL
 import kotlinx.android.synthetic.main.activity_details.*
 
@@ -67,6 +68,7 @@ class DetailsActivity : BaseActivity(), DetailsView {
         mDetailsViewPod.setPresenter(mPresenter)
 
         mCastsViewPod = vpCasts as CastViewPod
+        mCastsViewPod.setUpRecyclerview()
     }
 
     private fun setUpListeners(){
@@ -78,6 +80,10 @@ class DetailsActivity : BaseActivity(), DetailsView {
     override fun displayMovieDetails(details: MovieVO) {
         Glide.with(this).load(IMAGE_URL+details.posterPath).into(ivMoviePhoto)
         mDetailsViewPod.displayMovieDetails(details)
+    }
+
+    override fun displayCasts(casts: List<PersonVO>) {
+        mCastsViewPod.displayCasts(casts)
     }
 
     override fun goBackToMain() {

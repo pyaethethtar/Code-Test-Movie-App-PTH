@@ -8,5 +8,6 @@ class MovieApp : Application() {
     override fun onCreate() {
         super.onCreate()
         MovieModelImpl.initDatabase(applicationContext)
+        MovieModelImpl.getMoviesFromApiAndSaveToDatabase(onSuccess = {}, onError = {})
     }
 }

@@ -9,6 +9,7 @@ const val IMAGE_URL = "https://image.tmdb.org/t/p/original"
 const val GET_MOVIE_DETAILS = "movie"
 const val GET_POPULAR_MOVIES="movie/popular"
 const val GET_UPCOMING_MOVIES="movie/upcoming"
+const val GET_POPULAR_ACTORS = "person/popular"
 const val GET_GENRES_LIST="genre/movie/list"
 
 //Error Messages

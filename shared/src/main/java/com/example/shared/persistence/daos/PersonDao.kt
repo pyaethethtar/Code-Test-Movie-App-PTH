@@ -16,7 +16,7 @@ interface PersonDao {
     @Query("SELECT * FROM people WHERE id = :id")
     fun getActorById(id: Int): LiveData<PersonVO>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllPeople(people: List<PersonVO>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

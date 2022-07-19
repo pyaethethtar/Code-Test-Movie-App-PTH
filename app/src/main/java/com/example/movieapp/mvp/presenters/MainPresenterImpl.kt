@@ -1,5 +1,6 @@
 package com.example.movieapp.mvp.presenters
 
+
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.example.shared.AbstractBasePresenter
@@ -13,8 +14,8 @@ class MainPresenterImpl : MainPresenter, AbstractBasePresenter<MainView>() {
     private val mMovieModel: MovieModel = MovieModelImpl
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-        //mView?.displayLoading()
-        loadMoviesFromApi(lifecycleOwner)
+        mView?.displayLoading()
+        //loadMoviesFromApi()
         requestPopularMovies(lifecycleOwner)
         requestUpcomingMovies(lifecycleOwner)
     }
@@ -27,29 +28,30 @@ class MainPresenterImpl : MainPresenter, AbstractBasePresenter<MainView>() {
         mMovieModel.setFavouriteMovie(movie)
     }
 
-    private fun loadMoviesFromApi(lifecycleOwner: LifecycleOwner){
+    private fun loadMoviesFromApi(){
         mMovieModel.getMoviesFromApiAndSaveToDatabase(onSuccess = {}, onError = {})
     }
 
     private fun requestPopularMovies(lifecycleOwner: LifecycleOwner){
-        mMovieModel.getPopularMovies(
+        mMovieModel.getAllMovies (
             onError = { mView?.displayError(it)}
         ).observe(lifecycleOwner, Observer {
             if (it.isNotEmpty()){
-//                mView?.hideLoading()
-                mView?.displayPopularMovies(it)
+                mView?.hideLoading()
+                val movies = it.filter { it -> it.isPopular }
+                mView?.displayPopularMovies(movies)
             }
-
         })
     }
 
     private fun requestUpcomingMovies(lifecycleOwner: LifecycleOwner) {
-        mMovieModel.getUpcomingMovies(
+        mMovieModel.getAllMovies (
             onError = { mView?.displayError(it)}
         ).observe(lifecycleOwner, Observer {
             if (it.isNotEmpty()){
-//                mView?.hideLoading()
-                mView?.displayUpcomingMovies(it)
+                mView?.hideLoading()
+                val movies = it.filter { it -> it.isUpcoming }
+                mView?.displayUpcomingMovies(movies)
             }
 
         })

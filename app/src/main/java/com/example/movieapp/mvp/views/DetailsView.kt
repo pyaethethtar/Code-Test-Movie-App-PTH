@@ -7,5 +7,6 @@ import com.example.shared.data.vos.PersonVO
 interface DetailsView : BaseView {
 
     fun displayMovieDetails(details: MovieVO)
+    fun displayCasts(casts: List<PersonVO>)
     fun goBackToMain()
 }
