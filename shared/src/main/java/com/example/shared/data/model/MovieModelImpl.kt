@@ -6,6 +6,7 @@ import com.example.shared.data.vos.GenresVO
 import com.example.shared.data.vos.MovieVO
 import com.example.shared.data.vos.PersonVO
 import com.example.shared.network.responses.GetActorsListResponse
+import com.example.shared.network.responses.GetGenresListResponse
 import com.example.shared.network.responses.GetMoviesResponse
 import com.example.shared.utils.API_KEY
 import com.example.shared.utils.EM_NO_INTERNET_CONNECTION
@@ -83,6 +84,26 @@ object MovieModelImpl : BaseModel(), MovieModel {
                 onError(t.localizedMessage?: EM_NO_INTERNET_CONNECTION)
             }
 
+        })
+
+        mMovieApi.getGenresList(API_KEY).enqueue(object : Callback<GetGenresListResponse>{
+            override fun onResponse(
+                call: Call<GetGenresListResponse>,
+                response: Response<GetGenresListResponse>
+            ) {
+                if (response.isSuccessful){
+                    response.body()?.let {
+                        mTheDB.genresDao().insertGenresList(it.genres?.toList() ?: listOf())
+                    }
+                }
+                else{
+                    onError(response.errorBody().toString())
+                }
+            }
+
+            override fun onFailure(call: Call<GetGenresListResponse>, t: Throwable) {
+                onError(t.localizedMessage?: EM_NO_INTERNET_CONNECTION)
+            }
         })
     }
 
@@ -164,7 +185,7 @@ object MovieModelImpl : BaseModel(), MovieModel {
         return mTheDB.personDao().getActorList()
     }
 
-    override fun getGenresList(): LiveData<List<GenresVO>> {
+    override fun getGenresList(onError: (String) -> Unit): LiveData<List<GenresVO>> {
         return mTheDB.genresDao().getGenresList()
     }
 

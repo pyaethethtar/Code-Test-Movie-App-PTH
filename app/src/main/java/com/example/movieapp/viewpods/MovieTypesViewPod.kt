@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.adapters.MoviesAdapter
 import com.example.shared.data.vos.MovieVO
 import com.example.movieapp.delegates.MoviesDelegate
+import com.example.shared.data.vos.GenresVO
 import kotlinx.android.synthetic.main.viewpod_movie_types.view.*
 
 
@@ -33,6 +34,12 @@ class MovieTypesViewPod @JvmOverloads constructor(
 
     fun displayPopularMovies(movies: List<MovieVO>) {
         mAdapter.setNewData(movies)
+    }
+
+    fun displayGenresList(genres: List<GenresVO>){
+        genres.forEach {
+            tabLayout.addTab(tabLayout.newTab().setText(it.name))
+        }
     }
 
 

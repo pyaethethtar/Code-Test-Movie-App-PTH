@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/tvMovieName"
         android:layout_toStartOf="@id/tvPercentage"
-        android:paddingEnd="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:paddingHorizontal="@dimen/margin_small"
         tools:src="@drawable/ic_baseline_favorite_border_24" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -69,6 +70,8 @@
         android:textStyle="bold"
         android:layout_below="@id/tvDate"
         android:layout_alignStart="@id/tvMovieName"
+        android:layout_toStartOf="@id/tvLanguage"
+        android:layout_marginEnd="@dimen/margin_medium_1"
         android:layout_marginTop="@dimen/margin_medium_2"/>
 
     <androidx.appcompat.widget.AppCompatTextView

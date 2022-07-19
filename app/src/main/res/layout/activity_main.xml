@@ -64,7 +64,8 @@
             layout="@layout/viewpod_upcoming_movies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_large"/>
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_medium_2"/>
 
 
 

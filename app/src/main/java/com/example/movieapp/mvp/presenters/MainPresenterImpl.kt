@@ -18,6 +18,7 @@ class MainPresenterImpl : MainPresenter, AbstractBasePresenter<MainView>() {
         //loadMoviesFromApi()
         requestPopularMovies(lifecycleOwner)
         requestUpcomingMovies(lifecycleOwner)
+        requestGenreList(lifecycleOwner)
     }
 
     override fun onTapMovieItem(id: Int) {
@@ -55,6 +56,16 @@ class MainPresenterImpl : MainPresenter, AbstractBasePresenter<MainView>() {
             }
 
         })
+    }
+
+    private fun requestGenreList(lifecycleOwner: LifecycleOwner){
+        mMovieModel.getGenresList(onError = {mView?.displayError(it)})
+            .observe(lifecycleOwner, Observer {
+                if (it.isNotEmpty()){
+                    mView?.hideLoading()
+                    mView?.displayGenresList(it)
+                }
+            })
     }
 
 

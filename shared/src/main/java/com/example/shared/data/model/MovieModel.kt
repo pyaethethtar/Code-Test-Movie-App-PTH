@@ -12,6 +12,6 @@ interface MovieModel {
     fun getAllMovies(onError: (String) -> Unit): LiveData<List<MovieVO>>
     fun getMovieById(id:Int, onError: (String) -> Unit): LiveData<MovieVO>
     fun getActorsList(onError: (String) -> Unit) : LiveData<List<PersonVO>>
-    fun getGenresList() : LiveData<List<GenresVO>>
+    fun getGenresList(onError: (String) -> Unit) : LiveData<List<GenresVO>>
     fun setFavouriteMovie(movie: MovieVO)
 }

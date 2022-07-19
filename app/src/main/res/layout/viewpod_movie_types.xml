@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/margin_medium_3"
+        app:tabTextColor="@color/label_gray"
+        app:tabSelectedTextColor="@color/black"
         app:tabIndicatorColor="@color/black"
-        app:tabMode="scrollable"
-        app:tabRippleColor="@color/black" />
+        app:tabMode="scrollable"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvRecommend"

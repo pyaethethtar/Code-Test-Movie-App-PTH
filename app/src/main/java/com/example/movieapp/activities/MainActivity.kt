@@ -13,6 +13,7 @@ import com.example.shared.data.vos.MovieVO
 import com.example.movieapp.mvp.presenters.MainPresenter
 import com.example.movieapp.mvp.presenters.MainPresenterImpl
 import com.example.movieapp.mvp.views.MainView
+import com.example.shared.data.vos.GenresVO
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -63,6 +64,10 @@ class MainActivity : BaseActivity(), MainView {
 
     override fun displayUpcomingMovies(upcomingMovies: List<MovieVO>) {
         mUpcomingViewPod.displayUpcomingMovies(upcomingMovies)
+    }
+
+    override fun displayGenresList(genres: List<GenresVO>) {
+        mMoviesViewPod.displayGenresList(genres)
     }
 
     override fun navigateToMovieDetails(id: Int) {

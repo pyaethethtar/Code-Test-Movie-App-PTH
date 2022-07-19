@@ -16,7 +16,7 @@ interface GenresDao {
     @Query("SELECT * FROM genres WHERE id= :id")
     fun getGenresById(id: Int): LiveData<GenresVO>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertGenresList(genres : List<GenresVO>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -46,13 +46,14 @@
                 layout="@layout/viewpod_movie_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium_1"/>
+                android:layout_marginTop="@dimen/margin_medium_2"/>
 
             <include
                 android:id="@+id/vpCasts"
                 layout="@layout/viewpod_casts"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>

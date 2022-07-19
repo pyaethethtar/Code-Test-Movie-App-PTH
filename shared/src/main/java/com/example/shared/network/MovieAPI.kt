@@ -24,6 +24,9 @@ interface MovieAPI {
     @GET("$GET_MOVIE_DETAILS/{MOVIE_ID}")
     fun getMovieDetails(@Path("MOVIE_ID") movieId: Int, @Query(API_KEY_PARAM) apiKey: String): Call<MovieVO>
 
+    @GET(GET_GENRES_LIST)
+    fun getGenresList(@Query(API_KEY_PARAM) apiKey: String) : Call<GetGenresListResponse>
+
     @GET(GET_POPULAR_MOVIES)
     fun getPopularMoviesObservable(@Query(API_KEY_PARAM) apiKey: String): Observable<GetMoviesResponse>
 
